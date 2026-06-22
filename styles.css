@@ -7,6 +7,11 @@ body {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     background: #0078ff;
     color: white;
     padding: 24px 20px;
@@ -18,7 +23,7 @@ header {
 }
 
 .container {
-    padding: 20px 15px 120px;
+    padding: 110px 15px 140px;
     max-width: 540px;
     margin: auto;
 }
@@ -127,18 +132,46 @@ input:focus {
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
-.card div {
+.card-info {
     min-width: 0;
+    flex: 1;
 }
 
-.card strong {
+.card-info strong {
     display: block;
     margin-bottom: 8px;
     color: #0f172a;
 }
 
-.card small {
-    color: #64748b;
+.card-actions {
+    display: grid;
+    gap: 10px;
+    align-items: center;
+}
+
+.card-actions button {
+    width: 54px;
+    height: 42px;
+    padding: 0;
+}
+
+.btn-icon {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-icon:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+.btn-icon-delete {
+    color: #ef4444;
+    border-color: #fecaca;
 }
 
 .btn-add {
@@ -273,8 +306,12 @@ input:focus {
         align-items: stretch;
     }
 
+    .card-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .btn-icon {
-        margin-left: 0;
         width: 100%;
+        margin-left: 0;
     }
 }

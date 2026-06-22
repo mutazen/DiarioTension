@@ -319,6 +319,7 @@ window.addEventListener('DOMContentLoaded', () => {
             card.style.borderLeft = `8px solid ${statusColor}`;
 
             const info = document.createElement('div');
+            info.className = 'card-info';
             const strong = document.createElement('strong');
             strong.textContent = m.fecha || '';
             info.appendChild(strong);
@@ -326,6 +327,7 @@ window.addEventListener('DOMContentLoaded', () => {
             info.appendChild(document.createTextNode(`${m.sistolica}/${m.diastolica} mmHg | ${m.pulsaciones} pul/min`));
 
             const actions = document.createElement('div');
+            actions.className = 'card-actions';
             const editButton = document.createElement('button');
             editButton.type = 'button';
             editButton.className = 'btn-icon';
@@ -335,8 +337,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const deleteButton = document.createElement('button');
             deleteButton.type = 'button';
-            deleteButton.className = 'btn-icon';
-            deleteButton.style.color = 'red';
+            deleteButton.className = 'btn-icon btn-icon-delete';
             deleteButton.setAttribute('aria-label', 'Eliminar medición');
             deleteButton.textContent = '✕';
             deleteButton.addEventListener('click', () => borrarRegistro(id));
