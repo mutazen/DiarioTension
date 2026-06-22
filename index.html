@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Diario de Salud</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+
+<header id="header">Mis Mediciones</header>
+
+<div id="msg-aviso" role="status" aria-live="polite"></div>
+
+<!-- Pantalla Principal: Mediciones -->
+<div class="container" id="screen-list">
+    <div id="lista-mediciones"></div>
+    <div id="empty-state" class="empty-state">Aún no hay mediciones. Pulsa + para añadir una.</div>
+    <button id="btn-add" class="btn-add">+</button>
+</div>
+
+<!-- Pantalla de Reportes -->
+<div class="container" id="screen-reports" style="display: none;">
+    <h3 style="margin-top: 0; color: #0f172a;">Descargar Reporte</h3>
+    <p style="color: #64748b; margin-top: 0;">Selecciona un rango de fechas para descargar tus mediciones en formato ODT.</p>
+    
+    <div class="report-form">
+        <label for="fecha-desde">Desde:</label>
+        <input type="date" id="fecha-desde">
+        
+        <label for="fecha-hasta">Hasta:</label>
+        <input type="date" id="fecha-hasta">
+        
+        <button id="btn-download" class="btn-ui btn-download">📥 Descargar ODT</button>
+        
+        <div id="mediciones-count" style="margin-top: 20px; padding: 15px; background: #f1f5f9; border-radius: 12px; color: #475569; text-align: center;"></div>
+    </div>
+</div>
+
+<!-- Pantalla de Formulario -->
+<div class="container" id="screen-form" style="display: none;">
+    <div class="form-panel">
+        <h3 id="form-title" class="form-title">Nueva Medición</h3>
+        <form id="registro-form">
+            <label for="fecha">Fecha y hora</label>
+            <input type="datetime-local" id="fecha" required>
+            <label for="sis">Sistólica (mmHg)</label>
+            <input type="number" id="sis" required placeholder="Ej: 120">
+            <label for="dia">Diastólica (mmHg)</label>
+            <input type="number" id="dia" required placeholder="Ej: 80">
+            <label for="pul">Pulsaciones (pul/min)</label>
+            <input type="number" id="pul" required placeholder="Ej: 70">
+            <button type="submit" class="btn-ui btn-green">Guardar Registro</button>
+            <button id="btn-cancel" type="button" class="btn-ui btn-red">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Barra de Navegación Inferior -->
+<nav class="bottom-nav">
+    <button id="nav-mediciones" class="nav-button active" title="Mediciones">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Mediciones</span>
+    </button>
+    <button id="nav-reportes" class="nav-button" title="Reportes">
+        <span class="nav-icon">📥</span>
+        <span class="nav-label">Reportes</span>
+    </button>
+</nav>
+
+</body>
+</html>
+</body>
+</html>
