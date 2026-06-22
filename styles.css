@@ -298,7 +298,7 @@ input:focus {
 
 @media (max-width: 520px) {
     .container {
-        padding: 18px 12px 100px;
+        padding: 110px 12px 100px;
     }
 
     .card {
